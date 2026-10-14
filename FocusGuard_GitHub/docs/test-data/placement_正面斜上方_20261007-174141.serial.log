@@ -1,801 +1,0 @@
-﻿[1_無人] YOLOv4t tick[56]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3122676 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[56]
-[1_無人] >>> YOLOv4t FPS = 5.88
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3123676 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3124709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[56]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] >>> YOLOv4t FPS = 5.88
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3125709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3126709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3127709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[56]
-[1_無人] >>> YOLOv4t FPS = 5.88
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3128709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3129709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3130709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[1_無人] >>> YOLOv4t FPS = 5.88
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] YOLOv4t tick[57]
-[1_無人] [3131709 ms] state=NO_TARGET person=0 phone=0 frames/s=6
-[1_無人] YOLOv4t tick[57]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] >>> YOLOv4t FPS = 5.88
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3158210 ms] state=PERSON person=82 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3159243 ms] state=PERSON person=80 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3160277 ms] state=PERSON person=93 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] >>> YOLOv4t FPS = 5.88
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3161310 ms] state=PERSON person=85 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3162343 ms] state=PERSON person=88 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3163377 ms] state=PERSON person=83 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] >>> YOLOv4t FPS = 5.88
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3164410 ms] state=PERSON person=89 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3165443 ms] state=PERSON person=85 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] >>> YOLOv4t FPS = 5.88
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3166476 ms] state=PERSON person=83 phone=0 frames/s=6
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3167479 ms] state=PERSON person=89 phone=0 frames/s=6
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[57]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3168512 ms] state=PERSON person=88 phone=0 frames/s=6
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] >>> YOLOv4t FPS = 5.88
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3169544 ms] state=PERSON person=87 phone=0 frames/s=6
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3170579 ms] state=PERSON person=91 phone=0 frames/s=6
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3171612 ms] state=PERSON person=85 phone=0 frames/s=6
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] >>> YOLOv4t FPS = 5.88
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[58]
-[2_讀書無手機] [3172645 ms] state=PERSON person=85 phone=0 frames/s=6
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] YOLOv4t tick[57]
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[2_讀書無手機] [VID Wrn]
-[2_讀書無手機]  CH 0 MMF ENC Queue full 
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3226009 ms] state=PERSON person=79 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3227009 ms] state=PERSON person=83 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] >>> YOLOv4t FPS = 5.87
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3228009 ms] state=PERSON person=85 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3229009 ms] state=PERSON person=83 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3230009 ms] state=PERSON person=81 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] >>> YOLOv4t FPS = 5.87
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3231009 ms] state=PERSON person=87 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3231676 ms] PERSON -> PHONE (person=81 phone=73)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3231842 ms] PHONE -> UNSURE (person=77 phone=44)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3232009 ms] UNSURE -> PERSON (person=77 phone=0)
-[3_滑手機] [3232009 ms] state=PERSON person=77 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3232209 ms] PERSON -> PHONE (person=74 phone=66)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3232542 ms] PHONE -> UNSURE (person=87 phone=38)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3232709 ms] UNSURE -> PERSON (person=79 phone=0)
-[3_滑手機] YOLOv4t tick[57]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3233042 ms] state=PERSON person=83 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] >>> YOLOv4t FPS = 5.87
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3233709 ms] PERSON -> UNSURE (person=85 phone=44)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3233876 ms] UNSURE -> PERSON (person=84 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3234042 ms] state=PERSON person=85 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3234409 ms] PERSON -> PHONE (person=79 phone=69)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3234576 ms] PHONE -> UNSURE (person=87 phone=42)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3234909 ms] UNSURE -> PERSON (person=86 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3235076 ms] state=PERSON person=88 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3235742 ms] PERSON -> UNSURE (person=83 phone=32)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3235909 ms] UNSURE -> PERSON (person=87 phone=0)
-[3_滑手機] >>> YOLOv4t FPS = 5.87
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3236109 ms] state=PERSON person=85 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3236309 ms] PERSON -> PHONE (person=85 phone=52)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3236509 ms] PHONE -> PERSON (person=89 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3237176 ms] state=PERSON person=87 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3237342 ms] PERSON -> UNSURE (person=88 phone=31)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3237509 ms] UNSURE -> PERSON (person=88 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3238176 ms] state=PERSON person=88 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] >>> YOLOv4t FPS = 5.87
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3239176 ms] PERSON -> PHONE (person=88 phone=56)
-[3_滑手機] [3239176 ms] state=PHONE person=88 phone=56 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3239376 ms] PHONE -> UNSURE (person=88 phone=32)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3239709 ms] UNSURE -> PERSON (person=85 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3240209 ms] state=PERSON person=87 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3240542 ms] PERSON -> UNSURE (person=83 phone=31)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3240709 ms] UNSURE -> PERSON (person=88 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3240875 ms] PERSON -> UNSURE (person=89 phone=37)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3241209 ms] state=UNSURE person=87 phone=34 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3241376 ms] UNSURE -> PERSON (person=89 phone=0)
-[3_滑手機] >>> YOLOv4t FPS = 5.87
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3241576 ms] PERSON -> UNSURE (person=83 phone=38)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3241742 ms] UNSURE -> PERSON (person=91 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3242076 ms] PERSON -> UNSURE (person=85 phone=36)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3242242 ms] UNSURE -> PERSON (person=85 phone=0)
-[3_滑手機] [3242242 ms] state=PERSON person=85 phone=0 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3242609 ms] PERSON -> PHONE (person=83 phone=54)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3242776 ms] PHONE -> PERSON (person=85 phone=0)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3242942 ms] PERSON -> UNSURE (person=88 phone=42)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3243275 ms] state=UNSURE person=88 phone=46 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3243609 ms] UNSURE -> PHONE (person=87 phone=51)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3243942 ms] PHONE -> UNSURE (person=87 phone=39)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] >>> YOLOv4t FPS = 5.87
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3244275 ms] state=UNSURE person=83 phone=47 frames/s=6
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3244609 ms] UNSURE -> PHONE (person=85 phone=58)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3244775 ms] PHONE -> UNSURE (person=85 phone=47)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3245109 ms] UNSURE -> PHONE (person=83 phone=51)
-[3_滑手機] YOLOv4t tick[58]
-[3_滑手機] [3245275 ms] PHONE -> UNSURE (person=79 phone=34)
-[3_滑手機] [3245275 ms] state=UNSURE person=79 phone=34 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3274709 ms] state=PERSON person=85 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3275709 ms] state=PERSON person=81 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] >>> YOLOv4t FPS = 5.87
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3276709 ms] state=PERSON person=81 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3277709 ms] state=PERSON person=87 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3278709 ms] state=PERSON person=92 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] >>> YOLOv4t FPS = 5.87
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3279709 ms] state=PERSON person=85 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3280709 ms] state=PERSON person=87 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3281709 ms] state=PERSON person=81 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] >>> YOLOv4t FPS = 5.87
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3282709 ms] state=PERSON person=90 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] [3283709 ms] state=PERSON person=90 phone=0 frames/s=6
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[58]
-[4_手機放桌上] YOLOv4t tick[59]
