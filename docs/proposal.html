@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>讀書專注小幫手 提案</title>
+<style>
+  @page { size: A4; margin: 15mm 16mm; }
+  :root { --ink: #1d2433; --muted: #5b6475; --line: #c9d0dc; --accent: #2a5db0; --soft: #eef3fb; --todo: #b3261e; }
+  body { font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; color: var(--ink); background: #fff; font-size: 10pt; line-height: 1.5; margin: 0; }
+  h1 { font-size: 19pt; margin: 0 0 2mm; }
+  h2 { font-size: 13pt; color: var(--accent); border-bottom: 1.5px solid var(--accent); padding-bottom: 1mm; margin: 6mm 0 3mm; }
+  h3 { font-size: 11pt; margin: 4mm 0 1.5mm; }
+  p { margin: 1.5mm 0; }
+  ul, ol { margin: 1mm 0; padding-left: 6mm; }
+  li { margin: .6mm 0; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0; font-size: 9.5pt; }
+  th, td { border: 1px solid var(--line); padding: 1.4mm 2mm; vertical-align: top; text-align: left; }
+  th { background: var(--soft); }
+  .sub { color: var(--muted); }
+  .todo { color: var(--todo); font-weight: bold; }
+  .pick { background: #fff7d6; }
+  .page-break { break-before: page; }
+  .box { border: 1px solid var(--line); border-radius: 2mm; padding: 2mm 3mm; background: #fafbfd; }
+  .center { text-align: center; }
+  h2, h3 { break-after: avoid; } table { break-inside: avoid; }
+  svg text { font-family: "Microsoft JhengHei", sans-serif; }
+</style>
+</head>
+<body>
+
+<h1>讀書專注小幫手：書桌手機分心偵測提醒器</h1>
+<p class="sub">物聯網 影像辨識創意實作｜第一週 提案與可行性驗證｜平台：Ameba AMB82-MINI＋攝影機</p>
+
+<table>
+  <tr><th style="width:18%">成員</th><th style="width:22%">主要角色</th><th>負責內容</th></tr>
+  <tr><td>余易謙<br>61475075H</td><td>韌體與模型</td><td>Ameba 程式、辨識門檻調整、LED 控制；第二週負責狀態機（持續時間、防重複計數）</td></tr>
+  <tr><td>沈子淵<br>61475005H</td><td>網頁與整合</td><td>流程圖、驗證影片的拍攝與上傳；第二週負責板上網頁與事件紀錄</td></tr>
+  <tr><td>徐子豪<br>61475021H</td><td>測試與文件</td><td>構想比較、成功標準、測試表的設計與執行、提案 PDF 彙整；第三週負責測試紀錄與失敗分析</td></tr>
+</table>
+
+<h2>一、三個構想比較</h2>
+<table>
+  <tr><th style="width:13%"></th><th class="pick">A. 讀書專注小幫手（選定）</th><th>B. 實驗室無人節能提醒</th><th>C. 手勢答題闖關</th></tr>
+  <tr><th>使用情境</th><td class="pick">學生在宿舍書桌或自習座位上讀書，板子架在桌子斜前方、高出桌面約 30 公分</td><td>實驗室或社團辦公室的值日生、管理者，板子架在空間角落拍整個座位區</td><td>課堂複習或社團活動的互動小遊戲</td></tr>
+  <tr><th>問題需求</th><td class="pick">讀書時會不自覺拿起手機，事後也不知道分心了幾次、多久。用影像判斷不必在手機上裝 App，也不用穿戴裝置</td><td>最後離開的人常忘記關燈、關電扇或冷氣，造成浪費。紅外線感測器只能感應移動，人坐著打電腦不動時會被誤判成沒人；用影像辨識「有沒有人」比較準確</td><td>舉手搶答容易混亂，手勢作答比較公平，也能自動計分</td></tr>
+  <tr><th>辨識內容</th><td class="pick">person（人）、cell phone（手機）</td><td>person（人），只判斷畫面中有沒有人</td><td>手勢（例如比 1～4 根手指）</td></tr>
+  <tr><th>系統反應</th><td class="pick">LED 提示、網頁警示、分心次數與時間統計</td><td>連續 10 分鐘沒有人時亮 LED 提示，網頁顯示「無人，請確認是否關電」，並記錄每天最後離開的時間</td><td>網頁出題、作答、計分</td></tr>
+  <tr><th>可行性</th><td class="pick">SDK 內建 YOLOv4-tiny，COCO 類別本來就有 person 和 cell phone，<b>已在板上驗證</b></td><td>COCO 類別有 person，模型支援度高；但一個鏡頭要涵蓋整間實驗室，距離遠、人可能被螢幕或隔板擋住，偵測率要實測</td><td>SDK 有 HandGestureDetection 範例，但支援哪些手勢、準確度如何都還要實測，風險較高</td></tr>
+  <tr><th>失敗處理</th><td class="pick">信心值不足時判為「不確定」不觸發；沒有人時暫停計時；短暫遮擋有 2 秒寬限期</td><td>短暫沒偵測到人不立刻判定無人，要連續 10 分鐘才提醒；燈已關、畫面太暗時標示「無法判斷」，不發出提醒</td><td>手勢不明確不作答；同一手勢要放下後才能再答</td></tr>
+  <tr><th>隱私</th><td class="pick">只拍使用者本人的書桌，不做人臉辨識、不註冊人臉</td><td>公共空間會拍到其他成員，需事先公告並取得同意，只判斷有沒有人、不存影像</td><td>只拍手</td></tr>
+</table>
+
+<h3>評分比較（本組自評，1～5 分）</h3>
+<table class="center">
+  <tr><th>構想</th><th>需求具體</th><th>模型支援</th><th>容易量測</th><th>延伸空間</th><th>隱私風險低</th><th>合計</th></tr>
+  <tr class="pick"><td>A</td><td>5</td><td>5</td><td>5</td><td>5</td><td>4</td><th>24</th></tr>
+  <tr><td>B</td><td>4</td><td>5</td><td>4</td><td>3</td><td>3</td><th>19</th></tr>
+  <tr><td>C</td><td>3</td><td>3</td><td>4</td><td>4</td><td>5</td><th>19</th></tr>
+</table>
+
+<h3>選題理由</h3>
+<ul>
+  <li>需求來自組員自己讀書時的真實困擾，目標使用者明確。</li>
+  <li>模型能力不是問題：person 和 cell phone 都是 COCO 原生類別，第一週已經在板上跑出結果，風險最低。</li>
+  <li>可以延伸的設計很多：信心門檻、桌面辨識區域、持續時間判斷、防止重複計數、讀書與分心時間統計，都是我們自己要寫的部分，不是只改範例的文字或顏色。</li>
+  <li>辨識結果只用來提醒使用者本人，不用於點名、門禁或評分他人。</li>
+</ul>
+
+<h2>二、使用情境</h2>
+<div class="box">
+  <p>板子固定在書桌<b>斜前方、高出桌面約 30 公分</b>的位置，往下拍向桌面與使用者上半身。這個位置是第一週實測後決定的：手機背面朝向鏡頭時幾乎偵測不到，從斜上方往下拍，鏡頭能看到使用者手中手機的螢幕，實測可以偵測到手機。使用者開始讀書後：</p>
+  <ol>
+    <li>畫面中有人、桌上沒有手機在使用 → 綠燈亮，累計「讀書時間」<span class="sub">（第二週實作）</span>。</li>
+    <li>使用者拿起手機，在桌面區域持續 3 秒 → 藍燈亮，網頁跳出「分心提醒」，分心次數加 1<span class="sub">（第二週實作）</span>。</li>
+    <li>把手機放下或移出畫面超過 2 秒 → 結束這次分心並記錄持續時間，下次拿起才會重新計數<span class="sub">（第二週實作）</span>。</li>
+    <li>使用者離開座位 → 狀態變成「無人」，暫停所有計時，不算分心<span class="sub">（第二週實作）</span>。</li>
+    <li>讀完後打開網頁，看今天讀了多久、分心幾次、每次多久<span class="sub">（第二週實作）</span>。</li>
+  </ol>
+</div>
+
+<figure style="margin:3mm 0 0;text-align:center">
+  <img src="images/setup.jpg" alt="實際擺放環境" style="width:62mm;border:1px solid var(--line);border-radius:2mm">
+  <figcaption class="sub" style="font-size:9pt;margin-top:1mm">實際擺放環境：開發板固定在紙箱上，位於桌面斜前方、高出桌面約 30 公分，鏡頭朝向使用者與桌面</figcaption>
+</figure>
+
+<h2 class="page-break">三、系統流程圖</h2>
+<div class="center">
+<svg viewBox="0 0 690 596" width="100%" style="max-height:150mm" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1d2433"/></marker>
+  </defs>
+  <g font-size="12.5" fill="#1d2433" stroke="#1d2433" stroke-width="1.3">
+    <!-- legend -->
+    <g font-size="10.5" stroke-width="1">
+      <rect x="500" y="12" width="12" height="12" fill="#fff7d6"/><text x="517" y="22" stroke="none">判斷規則</text>
+      <rect x="500" y="30" width="12" height="12" fill="#e3f4e8"/><text x="517" y="40" stroke="none">系統反應</text>
+      <rect x="500" y="48" width="12" height="12" fill="#fde8e6"/><text x="517" y="58" stroke="none">無目標／無法確定的處理</text>
+    </g>
+    <!-- 1 input -->
+    <rect x="215" y="10" width="250" height="42" rx="6" fill="#eef3fb"/>
+    <text x="340" y="27" text-anchor="middle" stroke="none" font-weight="bold">① 影像輸入</text>
+    <text x="340" y="44" text-anchor="middle" stroke="none" font-size="11">攝影機影像縮成 576×320 送入模型</text>
+    <line x1="340" y1="52" x2="340" y2="70" marker-end="url(#ar)"/>
+    <!-- 2 recognition -->
+    <rect x="215" y="72" width="250" height="42" rx="6" fill="#eef3fb"/>
+    <text x="340" y="89" text-anchor="middle" stroke="none" font-weight="bold">② 辨識結果（在開發板上執行）</text>
+    <text x="340" y="106" text-anchor="middle" stroke="none" font-size="11">YOLOv4-tiny 輸出類別、位置框、信心值</text>
+    <line x1="340" y1="114" x2="340" y2="152" marker-end="url(#ar)"/>
+    <!-- 3 rules group -->
+    <rect x="222" y="126" width="458" height="248" rx="8" fill="none" stroke="#9aa6b8" stroke-dasharray="5 4"/>
+    <text x="232" y="144" stroke="none" font-weight="bold" fill="#5b6475">③ 判斷規則</text>
+    <!-- D1 -->
+    <polygon points="340,154 445,180 340,206 235,180" fill="#fff7d6"/>
+    <text x="340" y="184" text-anchor="middle" stroke="none">手機信心值 ≥ 50？</text>
+    <line x1="445" y1="180" x2="493" y2="180" marker-end="url(#ar)"/>
+    <text x="468" y="173" text-anchor="middle" stroke="none" font-size="11">是</text>
+    <line x1="340" y1="206" x2="340" y2="232" marker-end="url(#ar)"/>
+    <text x="350" y="223" stroke="none" font-size="11">否</text>
+    <!-- D4 -->
+    <text x="575" y="145" text-anchor="middle" stroke="none" font-size="10.5" fill="#5b6475">（第二週實作）</text>
+    <polygon points="575,150 655,180 575,210 495,180" fill="#fff7d6"/>
+    <text x="575" y="177" text-anchor="middle" stroke="none" font-size="11">連續 3 秒且在</text>
+    <text x="575" y="191" text-anchor="middle" stroke="none" font-size="11">桌面區域內？</text>
+    <!-- D2 -->
+    <polygon points="340,234 445,260 340,286 235,260" fill="#fff7d6"/>
+    <text x="340" y="264" text-anchor="middle" stroke="none">手機信心值 30～49？</text>
+    <line x1="340" y1="286" x2="340" y2="312" marker-end="url(#ar)"/>
+    <text x="350" y="303" stroke="none" font-size="11">否</text>
+    <!-- D3 -->
+    <polygon points="340,314 445,340 340,366 235,340" fill="#fff7d6"/>
+    <text x="340" y="344" text-anchor="middle" stroke="none">人的信心值 ≥ 50？</text>
+    <!-- branches to bottom row -->
+    <path d="M235,260 L90,260 L90,466" fill="none" marker-end="url(#ar)"/>
+    <text x="200" y="253" text-anchor="middle" stroke="none" font-size="11">是</text>
+    <path d="M340,366 L340,410 L255,410 L255,466" fill="none" marker-end="url(#ar)"/>
+    <text x="350" y="386" stroke="none" font-size="11">否</text>
+    <path d="M445,340 L460,340 L460,466" fill="none" marker-end="url(#ar)"/>
+    <text x="452" y="333" text-anchor="middle" stroke="none" font-size="11">是</text>
+    <path d="M575,210 L575,300 L485,300 L485,466" fill="none" marker-end="url(#ar)"/>
+    <text x="583" y="248" stroke="none" font-size="11">否</text>
+    <text x="583" y="262" stroke="none" font-size="10.5" fill="#5b6475">短暫出現</text>
+    <text x="583" y="276" stroke="none" font-size="10.5" fill="#5b6475">不計數</text>
+    <path d="M655,180 L675,180 L675,507 L657,507" fill="none" marker-end="url(#ar)"/>
+    <text x="665" y="173" text-anchor="middle" stroke="none" font-size="11">是</text>
+    <!-- bottom row -->
+    <rect x="15" y="468" width="150" height="78" rx="6" fill="#fde8e6"/>
+    <text x="90" y="489" text-anchor="middle" stroke="none" font-weight="bold">⑤ 無法確定</text>
+    <text x="90" y="507" text-anchor="middle" stroke="none" font-size="11">不亮燈、不計數</text>
+    <text x="90" y="523" text-anchor="middle" stroke="none" font-size="11">網頁顯示「不確定」</text>
+    <rect x="180" y="468" width="150" height="78" rx="6" fill="#fde8e6"/>
+    <text x="255" y="489" text-anchor="middle" stroke="none" font-weight="bold">⑤ 沒有目標</text>
+    <text x="255" y="507" text-anchor="middle" stroke="none" font-size="11">燈全滅、暫停計時</text>
+    <text x="255" y="523" text-anchor="middle" stroke="none" font-size="11">網頁顯示「無人」</text>
+    <text x="255" y="539" text-anchor="middle" stroke="none" font-size="10">10 秒無結果→提示檢查鏡頭</text>
+    <rect x="350" y="468" width="150" height="78" rx="6" fill="#e3f4e8"/>
+    <text x="425" y="489" text-anchor="middle" stroke="none" font-weight="bold">④ 讀書中</text>
+    <text x="425" y="507" text-anchor="middle" stroke="none" font-size="11">綠燈亮</text>
+    <text x="425" y="523" text-anchor="middle" stroke="none" font-size="11">累計讀書時間</text>
+    <rect x="515" y="468" width="140" height="78" rx="6" fill="#e3f4e8"/>
+    <text x="585" y="489" text-anchor="middle" stroke="none" font-weight="bold">④ 分心</text>
+    <text x="585" y="507" text-anchor="middle" stroke="none" font-size="11">藍燈亮、網頁提醒</text>
+    <text x="585" y="523" text-anchor="middle" stroke="none" font-size="11">分心次數 +1</text>
+    <!-- loop back -->
+    <g stroke="#5b6475" fill="none">
+      <path d="M90,546 L90,566 M255,546 L255,566 M425,546 L425,566 M585,546 L585,566"/>
+      <path d="M585,566 L8,566 L8,31 L213,31" marker-end="url(#ar)"/>
+    </g>
+    <text x="340" y="584" text-anchor="middle" stroke="none" font-size="10.5" fill="#5b6475">處理完畢，回到 ① 處理下一張影像（每秒約 6 張）</text>
+  </g>
+</svg>
+</div>
+
+<h2>四、失敗處理設計</h2>
+<table>
+  <tr><th style="width:20%">情況</th><th style="width:38%">可能結果</th><th>系統怎麼處理</th></tr>
+  <tr><td>光線不足</td><td>信心值下降，偵測時有時無</td><td>30～49 分判為「不確定」，不亮燈也不計數；連續 10 秒完全沒有結果時，提示檢查光線</td></tr>
+  <tr><td>手機被手遮住一部分</td><td>手機的偵測框短暫消失</td><td>有 2 秒寬限期，期間不算結束分心，避免同一次被重複計數</td></tr>
+  <tr><td>把其他物品誤認成手機（遙控器、計算機）</td><td>短暫誤報</td><td>要「連續 3 秒且在桌面區域內」才觸發，並在第三週用干擾物實測誤報率</td></tr>
+  <tr><td>使用者離開座位</td><td>沒有 person</td><td>狀態變成「無人」，暫停所有計時，不計分心</td></tr>
+  <tr><td>畫面中有其他人</td><td>多個 person</td><td>只拍自己的座位，鏡頭角度避開走道；第二週只計算畫面中最大的那個人</td></tr>
+</table>
+
+<h2>五、可量測的成功標準</h2>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:44%">標準</th><th>測試方法</th></tr>
+  <tr><td>1</td><td><b>第一週：</b>手機被確定偵測（信心值 ≥ 50）後，藍燈在 <b>1 秒內</b>亮起</td><td>對照序列埠時間戳記，並用影片逐格確認，測 10 次</td></tr>
+  <tr><td>2</td><td><b>最終版：</b>手機在桌面區域連續出現 3 秒後，<b>1 秒內</b>亮藍燈並更新網頁（也就是拿起手機 4 秒內提醒）</td><td>用碼錶加錄影測 20 次，記錄每次的反應時間</td></tr>
+  <tr><td>3</td><td>室內正常照明、距離 40～80 公分，拿手機 20 次，<b>至少 17 次（85%）</b>成功觸發</td><td>測試表逐次記錄</td></tr>
+  <tr><td>4</td><td>拿書、杯子、遙控器、空手各 10 次，<b>誤觸發不超過 2 次</b></td><td>測試表逐次記錄</td></tr>
+  <tr><td>5</td><td>人離開畫面後 <b>3 秒內</b>狀態變成「無人」並暫停計時</td><td>測 10 次</td></tr>
+  <tr><td>6</td><td>同一次拿手機（中間被遮擋短於 2 秒）只計 <b>1 次</b></td><td>刻意遮擋手機 10 次，檢查計數</td></tr>
+</table>
+
+<h2>六、第一週基本辨識驗證</h2>
+<ul>
+  <li>程式：<code>focus_check.ino</code>，改自 Realtek 範例 ObjectDetectionCallback。只保留 person 和 cell phone 兩類，依信心值分成 NO_TARGET、PERSON、UNSURE、PHONE 四種狀態，綠燈代表有人、藍燈代表有手機，RTSP 畫面上會疊加狀態文字。</li>
+  <li>驗證影片（30～60 秒）：<a href="https://youtu.be/EIYMQfndlLI">https://youtu.be/EIYMQfndlLI</a></li>
+</ul>
+<table>
+  <tr><th style="width:27%">驗證項目</th><th style="width:17%">預期</th><th>影像張數</th><th>人 ≥ 50</th><th>手機 ≥ 50</th><th>手機 30～49<br>（無法確定）</th><th>最高分<br>人／手機</th></tr>
+  <tr><td>沒有人、沒有手機（10 秒）</td><td>NO_TARGET，燈全滅</td><td>59</td><td>0%</td><td>0%</td><td>0%</td><td>0／0</td></tr>
+  <tr><td>坐著讀書、沒有手機（15 秒）</td><td>PERSON，綠燈亮</td><td>87</td><td>100%</td><td>0%</td><td>0%</td><td>93／0</td></tr>
+  <tr><td>用平常姿勢滑手機（20 秒）</td><td>PHONE，藍燈亮</td><td>119</td><td>100%</td><td><b>79%</b></td><td>8%</td><td>93／88</td></tr>
+  <tr><td>手機螢幕朝上放在桌面、沒在使用（10 秒）</td><td>不應判為 PHONE</td><td>59</td><td>100%</td><td>0%</td><td>0%</td><td>92／0</td></tr>
+</table>
+<p class="sub">百分比為該情況下所有影像中達到該信心值的比例。手機 30～49 分判為 UNSURE（無法確定），程式設計為不亮藍燈、不計數。辨識速度實測每秒約 6 張（同時開著 RTSP 串流）。</p>
+<p class="sub">驗證時發現的問題或限制：手機<b>螢幕朝向鏡頭</b>時比較容易被偵測到；<b>背面朝向鏡頭</b>時幾乎偵測不到。另外，偵測結果會在相鄰幾張影像之間時有時無，狀態切換很頻繁，這是第二週要加入「連續 3 秒判斷」與「2 秒寬限期」的原因。</p>
+
+<h2>七、材料清單</h2>
+<table>
+  <tr><th>項目</th><th>數量</th><th>用途</th></tr>
+  <tr><td>Ameba AMB82-MINI 開發板＋攝影機模組</td><td>1</td><td>影像輸入與板上辨識（課堂提供）</td></tr>
+  <tr><td>USB 傳輸線</td><td>1</td><td>供電、燒錄、序列埠</td></tr>
+  <tr><td>筆電（Arduino IDE 或 VS Code，Ameba SDK 4.1.1）</td><td>1</td><td>開發、看序列埠、用 VLC 看 RTSP 畫面</td></tr>
+  <tr><td>手機支架或紙盒</td><td>1</td><td>固定鏡頭角度，讓測試可以重現</td></tr>
+  <tr><td>測試物品：手機、書、杯子、遙控器、計算機</td><td>各 1</td><td>正向與干擾測試</td></tr>
+</table>
+<p class="sub">不需要另外購買硬體，LED 使用板上內建的 LED_G（D24）和 LED_B（D23）。</p>
+
+<h2>八、三週計畫</h2>
+<table>
+  <tr><th style="width:12%">週次</th><th>工作項目</th></tr>
+  <tr><td>第一週</td><td>三個構想比較與選題；板上跑 YOLO，驗證 person 和 cell phone 能被辨識；畫流程圖、訂成功標準；錄驗證影片</td></tr>
+  <tr><td>第二週</td><td>桌面辨識區域、連續 3 秒判斷、2 秒寬限期、防重複計數的狀態機；板上 HTTP 網頁（即時狀態、次數、時間、事件列表）；錄操作影片</td></tr>
+  <tr><td>第三週</td><td>依成功標準 1～6 做系統化測試（不同光線、距離、干擾物）；分析失敗原因、調整門檻或區域後重測；README、成果報告、展示影片</td></tr>
+</table>
+
+<h2>九、使用來源與 AI 使用說明</h2>
+<ul>
+  <li>Realtek Ameba Arduino SDK 範例 <code>NeuralNetwork/ObjectDetectionCallback</code>，以及其中的 <code>ObjectClassList.h</code>。</li>
+  <li>使用生成式 AI（Claude）協助撰寫驗證程式初稿與提案文件架構。類別篩選、信心值分級、LED 對應方式、成功標準與測試設計，由本組討論決定，程式也由本組在開發板上實際燒錄驗證。</li>
+  <li>測試時只拍攝組員本人，且已取得同意。</li>
+</ul>
+
+</body>
+</html>

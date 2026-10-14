@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/33424381/README.md)
 # 讀書專注小幫手（Focus Guard）
 
 用 Ameba AMB82-MINI 與攝影機，在**開發板上**辨識「人」與「手機」，判斷讀書時是否在滑手機，並用 LED 與板上網頁提醒、統計分心次數與時間。
