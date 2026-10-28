@@ -1,11 +1,17 @@
 /*
- * 讀書專注小幫手 — 第二週原型（AMB82-MINI）
+ * 讀書專注小幫手 — 第三週版本（AMB82-MINI）
  *
  * 以第一週的 focus_check 為基礎（改自 Realtek 範例 NeuralNetwork/ObjectDetectionCallback），
  * 第二週新增：
  *   1. 狀態機：手機連續出現 3 秒才判定「分心」，手機消失超過 2 秒才結束，同一次不重複計數；
  *      人消失超過 3 秒判定「離座」並暫停計時；累計讀書時間、分心時間與分心次數
  *   2. 板上網頁：瀏覽器開 http://<板子IP>/ 可看即時狀態、統計與分心紀錄，並可按「歸零」
+ * 第三週改進（依初測結果）：
+ *   3. 遲滯門檻：手機 ≥ 50 分才開始確認；已在確認期或分心中時，≥ 30 分就算手機還在。
+ *      初測發現分心中手機分數常掉到 30～49 分，被當成消失而提前結束分心（遮擋 2 次、正常 1 次）
+ *   4. 判定分心的那一刻必須真的看到手機。重測發現：手機只出現開頭 1.4 秒、之後消失，
+ *      仍會因「距第一次看到滿 3 秒、距最後一次看到不到 2 秒」被判成分心，0.4 秒後又結束
+ *   5. 確認時間由 3 秒縮短為 2 秒：初測中拿起手機到判定分心常超過 4.5 秒，反應太慢
  *
  * LED：LED_G（綠）= 讀書中，LED_B（藍）= 分心中。序列埠保留第一週的逐幀 F,... 紀錄，
  * 另外輸出 EVENT,... 事件紀錄。Wi-Fi 帳密放在 secrets.h（不上傳）。
@@ -38,10 +44,11 @@ constexpr int CLASS_PHONE = 67;
 constexpr float MODEL_MIN_CONFIDENCE = 0.30f;
 constexpr float MODEL_NMS = 0.30f;
 constexpr int CONFIRM_SCORE = 50;    // ≥ 50 才算確定
-constexpr int UNSURE_SCORE = 30;     // 30～49 視為不確定，不會觸發也不會延長分心
+constexpr int UNSURE_SCORE = 30;     // 30～49 視為不確定，不會開始分心
+constexpr int KEEP_SCORE = 30;       // 第三週改進：已在確認期或分心中時，≥ 30 就算手機還在（遲滯）
 
 // 狀態機參數
-constexpr unsigned long PHONE_CONFIRM_MS = 3000;    // 手機連續出現多久才算分心
+constexpr unsigned long PHONE_CONFIRM_MS = 2000;    // 手機連續出現多久才算分心（第三週由 3 秒縮短為 2 秒）
 constexpr unsigned long PHONE_GRACE_MS = 2000;      // 手機消失多久才算結束（短暫遮擋不算）
 constexpr unsigned long AWAY_MS = 3000;             // 人消失多久才算離座
 constexpr unsigned long MAX_FRAME_GAP_MS = 1000;    // 累計時間時，單一幀最多算 1 秒
@@ -344,7 +351,7 @@ void resetStats()
     Serial.println("EVENT,RESET");
 }
 
-// 一次分心的長度 = 手機第一次出現到最後一次出現（含 3 秒確認期，不含結束時的寬限期）
+// 一次分心的長度 = 手機第一次出現到最後一次出現（含確認期，不含結束時的寬限期）
 unsigned long currentDistractMs()
 {
     return userState == DISTRACTED ? phoneLastSeenMs - distractStartMs : 0;
@@ -370,7 +377,9 @@ void updateUserState(unsigned long now, int personScore, int phoneScore)
     }
 
     const bool personSeen = personScore >= CONFIRM_SCORE;
-    const bool phoneSeen = phoneScore >= CONFIRM_SCORE;
+    // 遲滯：開始要 ≥ 50，已經在追蹤手機（確認期或分心中）時降到 ≥ 30 就算還在
+    const bool trackingPhone = (userState == PHONE_PENDING || userState == DISTRACTED);
+    const bool phoneSeen = phoneScore >= (trackingPhone ? KEEP_SCORE : CONFIRM_SCORE);
     if (personSeen) {
         personLastSeenMs = now;
     }
@@ -388,7 +397,8 @@ void updateUserState(unsigned long now, int personScore, int phoneScore)
     UserState next;
     if (userState == DISTRACTED) {
         next = phoneActive ? DISTRACTED : STUDYING;
-    } else if (phoneActive && now - phoneFirstSeenMs >= PHONE_CONFIRM_MS) {
+    } else if (phoneActive && phoneSeen && now - phoneFirstSeenMs >= PHONE_CONFIRM_MS) {
+        // 第三週修正：判定分心的這一刻必須真的看到手機，不能只靠寬限期撐滿確認時間
         next = DISTRACTED;
     } else if (phoneActive) {
         next = PHONE_PENDING;
@@ -404,7 +414,7 @@ void updateUserState(unsigned long now, int personScore, int phoneScore)
         if (next == DISTRACTED) {
             distractCount++;
             distractStartMs = phoneFirstSeenMs;
-            // 確認期那 3 秒原本算成讀書時間，改算到這次分心
+            // 確認期原本算成讀書時間，改算到這次分心
             studyMs -= std::min(now - phoneFirstSeenMs, studyMs);
             printf("EVENT,DISTRACT_START,%lu,%d\r\n", now, distractCount);
         }

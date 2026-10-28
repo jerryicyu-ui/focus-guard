@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>讀書專注小幫手 成果報告</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm; }
+  :root { --ink: #1d2433; --muted: #5b6475; --line: #c9d0dc; --accent: #2a5db0; --soft: #eef3fb; --todo: #b3261e; --bad: #fdecea; --good: #e3f4e8; }
+  body { font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; color: var(--ink); background: #fff; font-size: 9.6pt; line-height: 1.5; margin: 0; }
+  h1 { font-size: 17pt; margin: 0 0 1mm; }
+  h2 { font-size: 12pt; color: var(--accent); border-bottom: 1.5px solid var(--accent); padding-bottom: 1mm; margin: 4.5mm 0 2mm; break-after: avoid; }
+  h3 { font-size: 10.5pt; margin: 3mm 0 1.2mm; break-after: avoid; }
+  p { margin: 1.1mm 0; }
+  ul, ol { margin: 1mm 0; padding-left: 5.5mm; }
+  li { margin: .4mm 0; }
+  table { width: 100%; border-collapse: collapse; margin: 1.5mm 0; font-size: 8.9pt; }
+  th, td { border: 1px solid var(--line); padding: 1mm 1.6mm; vertical-align: top; text-align: left; }
+  th { background: var(--soft); }
+  tr { break-inside: avoid; }
+  .sub { color: var(--muted); }
+  .todo { color: var(--todo); font-weight: bold; }
+  .num td, .num th { text-align: center; }
+  .num td:first-child { text-align: left; }
+  .good { background: var(--good); font-weight: bold; }
+  code, pre { font-size: 8.5pt; }
+  pre { background: #f6f8fb; border: 1px solid var(--line); padding: 1.5mm 2mm; margin: 1.2mm 0; white-space: pre-wrap; }
+  a { color: var(--accent); }
+  .two { display: grid; grid-template-columns: 1fr 52mm; gap: 4mm; align-items: start; }
+  .two img { width: 52mm; border: 1px solid var(--line); border-radius: 2mm; }
+  .rec { font-size: 7.8pt; }
+  .rec td, .rec th { padding: .6mm 1.2mm; }
+  .rec tr.fail td { background: var(--bad); }
+  .rec-head { margin: 2mm 0 .5mm; font-size: 8.8pt; }
+  .page-break { break-before: page; }
+</style>
+</head>
+<body>
+
+<h1>讀書專注小幫手｜成果報告</h1>
+<p class="sub">物聯網 影像辨識創意實作｜Ameba AMB82-MINI＋攝影機｜余易謙 61475075H、沈子淵 61475005H、徐子豪 61475021H</p>
+<ul>
+  <li>程式與 README（GitHub）：<a href="https://github.com/jerryicyu-ui/focus-guard">https://github.com/jerryicyu-ui/focus-guard</a>　最終程式在 <code>focus_guard/</code></li>
+  <li>展示影片：<a href="https://youtu.be/4RnO6hfKtMU">https://youtu.be/4RnO6hfKtMU</a></li>
+</ul>
+
+<h2>一、問題與目標</h2>
+<p>讀書時常不自覺拿起手機，事後也不知道分心了幾次、多久。本作品把開發板架在書桌斜前方，由板子上的模型辨識「人」與「手機」，判斷使用者是否在滑手機，用 LED 與板上網頁即時提醒，並統計讀書時間、分心次數與分心時間。不需要在手機上安裝 App，也不需要穿戴裝置。</p>
+<p><b>目標：</b>拿起手機滑時，5 秒內判定分心；短暫遮擋不重複計數；手拿書、杯子等其他物品時不誤判。</p>
+
+<h2>二、系統設計</h2>
+<div class="two">
+<div>
+<table>
+  <tr><th style="width:22%">流程</th><th>內容（全部在開發板上執行，電腦只負責顯示）</th></tr>
+  <tr><td>① 影像輸入</td><td>JXF37 攝影機；辨識用通道 576×320 RGB，實際約每秒 6 張</td></tr>
+  <tr><td>② 辨識</td><td>SDK 內建 YOLOv4-tiny（COCO），只取 person 與 cell phone 的最高信心值</td></tr>
+  <tr><td>③ 判斷</td><td>跨時間的狀態機（下表），避免單張影像時有時無造成誤判</td></tr>
+  <tr><td>④ 反應</td><td>LED（綠＝讀書中、藍＝分心中）、板上網頁、RTSP 畫面狀態文字、序列埠事件紀錄</td></tr>
+  <tr><td>⑤ 無目標／無法確定</td><td>沒有人超過 3 秒→離座（燈全滅、暫停計時）；手機 30～49 分不會開始分心</td></tr>
+</table>
+<table>
+  <tr><th style="width:18%">狀態</th><th>進入條件（最終版本）</th><th style="width:20%">LED／網頁</th></tr>
+  <tr><td>離座</td><td>沒有手機，且人消失超過 3 秒</td><td>全滅／灰</td></tr>
+  <tr><td>讀書中</td><td>偵測到人（≥ 50 分），沒有手機</td><td>綠燈／綠</td></tr>
+  <tr><td>偵測到手機</td><td>手機 ≥ 50 分出現，開始 2 秒確認；確認期間 ≥ 30 分就算還在</td><td>綠燈／黃色倒數</td></tr>
+  <tr><td>分心中</td><td>連續 2 秒（中斷不超過 2 秒），且<b>判定當下看得到手機</b>；分心次數 +1。之後手機 ≥ 30 分就維持，消失超過 2 秒才結束</td><td>藍燈／紅</td></tr>
+</table>
+</div>
+<div><img src="images/setup.jpg" alt="擺放環境"><p class="sub" style="font-size:8pt">開發板固定在紙箱上，位於書桌斜前方、高出桌面約 30 公分</p></div>
+</div>
+
+<h2>三、功能延伸（與原始範例比較）</h2>
+<table>
+  <tr><th style="width:15%">項目</th><th style="width:33%">原始範例 ObjectDetectionCallback</th><th>本組最終版本 focus_guard</th></tr>
+  <tr><td>辨識對象</td><td>80 類全部畫框</td><td>只用 person、cell phone，依信心值分四種單張狀態</td></tr>
+  <tr><td>判斷方式</td><td>每張影像獨立，沒有判斷</td><td>狀態機：連續 2 秒才觸發、2 秒寬限、3 秒離座、遲滯門檻（50 進入／30 維持）</td></tr>
+  <tr><td>反應</td><td>RTSP 畫框、序列埠印座標</td><td>LED 依狀態、板上網頁（狀態、倒數、統計、最近 20 筆紀錄、歸零）、RTSP 狀態文字</td></tr>
+  <tr><td>紀錄</td><td>無</td><td>分心次數、讀書／分心時間、每次分心的開始與持續時間；序列埠 <code>EVENT</code> 事件供測試</td></tr>
+  <tr><td>網路</td><td>連不上 Wi-Fi 就停在連線迴圈</td><td>連不上也照常辨識與控制 LED，背景每 5 秒重連</td></tr>
+</table>
+
+<h2>四、測試方法</h2>
+<table>
+  <tr><th style="width:17%">條件</th><th style="width:43%">每一次的操作</th><th>符合預期的判斷</th></tr>
+  <tr><td>正常情境</td><td>坐著讀書 → 拿起手機用平常姿勢滑約 8 秒 → 放下</td><td>5 秒內判定分心、滑的途中不中斷、放下後回到讀書中，次數 +1</td></tr>
+  <tr><td>干擾情境（遮擋）</td><td>拿起手機滑約 5 秒 → 用手遮住手機約 1 秒 → 移開繼續滑 4 秒 → 放下</td><td>遮擋前已判定分心，遮擋期間不中斷，次數只 +1</td></tr>
+  <tr><td>非目標情境</td><td>手機收起，輪流手拿書、杯子、遙控器約 6 秒 → 放下</td><td>不判定分心</td></tr>
+</table>
+<ul>
+  <li>環境：板子固定於斜前方約 30 公分處、室內一般照明、同一位組員與同一支手機（2026-10-27～28）。</li>
+  <li>每一次都重新操作一次（不使用連續影片中的相鄰影格）。測試腳本 <code>trial_test.ps1</code> 逐步提示動作，讀取板子的 <code>EVENT</code> 事件自動判斷結果與反應秒數，並記錄每一幀的分數供失敗分析。</li>
+  <li>只有明顯的操作失誤（沒看到提示、沒放下手機）可作廢重做；作廢與排除的紀錄與審查結果保留在 GitHub 的 <code>docs/test-data/week3/作廢紀錄審查.md</code>。</li>
+</ul>
+
+<h2>五、初測結果（30 次）</h2>
+<table class="num">
+  <tr><th>條件</th><th>符合預期</th><th>失敗的情況</th></tr>
+  <tr><td>正常情境</td><td>6／10</td><td style="text-align:left">#1 滑的途中分心就結束；#2、#3 一直沒判定分心；#8 5.4 秒才判定（超過 5 秒）</td></tr>
+  <tr><td>干擾情境（遮擋）</td><td>7／10</td><td style="text-align:left">#1 遮擋時還在確認期（5.8 秒才判定）；#4 分心中斷後重新計數（+2）；#8 放下前分心就結束</td></tr>
+  <tr><td>非目標情境</td><td>10／10</td><td style="text-align:left">無。遙控器、書各有一幀手機分數 42、39，未達 50</td></tr>
+  <tr><td><b>合計</b></td><td><b>23／30</b></td><td></td></tr>
+</table>
+<p><b>失敗分析：</b>失敗集中在「手機明明一直在手上，偵測結果卻時有時無」。從逐幀紀錄看，遮擋 #8 中斷的那段時間，手機分數其實是：</p>
+<pre>… 43, 38, 42, 41, 38, 0, 0, 45, 38, 0, 0, 48, 48, 42, 37 …（30～49 分被當成「沒看到」，超過 2 秒寬限就結束分心）</pre>
+<p>另外，拿起手機到判定分心平均約 4.7 秒（需 3 秒確認，加上拿起手機的時間），接近 5 秒的標準，稍慢就失敗。正常 #4～#7 的組員在倒數時已先拿起手機，反應秒數偏短，不納入平均。</p>
+
+<h2>六、改進過程</h2>
+<table>
+  <tr><th style="width:4%">#</th><th style="width:30%">改進</th><th>依據</th></tr>
+  <tr><td>1</td><td><b>遲滯門檻</b>：手機 ≥ 50 才開始；已在確認期或分心中時，≥ 30 就算還在</td><td>初測 3 次「分心途中中斷」時，手機分數多在 30～49 分。用初測逐幀紀錄模擬，舊規則的結果與板子實際紀錄一致，新規則可避免遮擋 #4、#8 的中斷</td></tr>
+  <tr><td>2</td><td><b>判定分心的當下必須看得到手機</b></td><td>第一輪重測（只加改進 1）時發現邏輯錯誤：手機只出現開頭 1.4 秒，消失 1.7 秒後仍因「距第一次看到滿 3 秒、距最後一次看到不到 2 秒」被判成分心，0.4 秒後又結束</td></tr>
+  <tr><td>3</td><td><b>確認時間由 3 秒縮短為 2 秒</b></td><td>組員認為從偵測到手機到判定分心太久；初測平均約 4.7 秒，接近 5 秒標準</td></tr>
+</table>
+<p><b>第一輪重測（只有改進 1）：</b>正式紀錄為正常 9／10、遮擋 7／10，遮擋沒有進步。審查作廢紀錄時發現有 2 次其實是系統失敗（分心途中中斷）卻被當成操作失誤作廢，計入後為正常 9／11、遮擋 7／11（審查紀錄見 GitHub）。因此追查原因找到改進 2，並統一作廢標準後，以最終版本重測三種條件。</p>
+<p class="sub">程式碼改動（focus_guard.ino 的 <code>updateUserState</code>）：</p>
+<pre>const bool trackingPhone = (userState == PHONE_PENDING || userState == DISTRACTED);
+const bool phoneSeen = phoneScore &gt;= (trackingPhone ? KEEP_SCORE : CONFIRM_SCORE);   // 改進 1：50 進入、30 維持
+…
+} else if (phoneActive &amp;&amp; phoneSeen &amp;&amp; now - phoneFirstSeenMs &gt;= PHONE_CONFIRM_MS) {     // 改進 2、3：當下要看到、2 秒
+    next = DISTRACTED;</pre>
+
+<h2>七、重測結果與改進前後比較</h2>
+<table class="num">
+  <tr><th>條件</th><th>初測（原始）</th><th>第一輪重測（改進 1）</th><th>最終重測（改進 1＋2＋3）</th></tr>
+  <tr><td>正常情境</td><td>6／10</td><td>9／10（含系統失敗作廢 9／11）</td><td class="good">10／10</td></tr>
+  <tr><td>干擾情境（遮擋）</td><td>7／10</td><td>7／10（含系統失敗作廢 7／11）</td><td class="good">10／10</td></tr>
+  <tr><td>非目標情境</td><td>10／10</td><td>—（進入條件未變，未重測）</td><td class="good">10／10</td></tr>
+  <tr><td>拿起手機到判定分心</td><td>平均約 4.7 秒（4.1～5.8）</td><td>正常平均 4.1 秒</td><td class="good">平均約 3.2 秒（2.5～3.9）</td></tr>
+</table>
+<ul>
+  <li>最終版本 30 次全部符合預期；「分心途中中斷」與「一直沒判定分心」都沒有再出現。</li>
+  <li>縮短確認時間可能讓誤判變多，因此非目標情境也重測 10 次：手機分數全部為 0，沒有誤判。</li>
+  <li>代價：放下手機後，偶爾因放下瞬間仍有 30～49 分，回到讀書中會晚約 0.5 秒（由初測紀錄模擬得到）。</li>
+</ul>
+
+<h2>八、限制</h2>
+<ol>
+  <li>手機背面朝向鏡頭時幾乎偵測不到，因此板子必須放在斜前方、高出桌面約 30 公分；換位置要重新驗證。</li>
+  <li>測試只在一種擺放、一般室內照明、同一位組員與同一支手機下進行；光線變暗、距離與其他手機型號未測試。</li>
+  <li>確認時間 2 秒：只拿起手機看時間超過 2 秒也會被算成一次分心（此情況未測試）。</li>
+  <li>統計存在記憶體，重新開機會歸零；時間以「開機後經過多久」表示，不是實際時刻。</li>
+  <li>RTSP 畫面一次只能一人觀看，且只在實驗室網路 ITILab 穩定出畫面；第二週曾發生一次網頁停止更新（板子仍正常回應），原因未確認，第三週測試期間組員未再回報。長時間運作（約 1.6 小時）後曾發生 Wi-Fi 斷線但板子仍判斷為已連線，自動重連沒有啟動，網頁打不開；辨識與 LED 不受影響，按 RESET 後恢復。</li>
+  <li>安裝注意：紙箱壓到 UART_DOWNLOAD 會讓板子開機進入燒錄模式；攝影機排線鬆脫時序列埠只有開機訊息、沒有辨識紀錄。</li>
+</ol>
+
+<h2>九、實際分工</h2>
+<table>
+  <tr><th style="width:20%">成員</th><th style="width:16%">角色</th><th>實際負責</th></tr>
+  <tr><td>余易謙 61475075H</td><td>韌體與模型</td><td>Ameba 程式、辨識門檻、LED 控制；第二週狀態機（持續時間、防重複計數）；第三週依測試結果修正韌體</td></tr>
+  <tr><td>沈子淵 61475005H</td><td>網頁與整合</td><td>流程圖、各週影片拍攝與上傳；第二週板上網頁與事件紀錄；第三週 README 與展示影片</td></tr>
+  <tr><td>徐子豪 61475021H</td><td>測試與文件</td><td>構想比較、成功標準、測試表設計與執行、各週 PDF 彙整；第三週測試紀錄與失敗分析</td></tr>
+</table>
+
+<h2>十、README 摘要</h2>
+<table>
+  <tr><th style="width:17%">項目</th><th>內容（完整版見 GitHub 的 README.md）</th></tr>
+  <tr><td>材料</td><td>AMB82-MINI、JXF37 攝影機模組、USB 傳輸線、電腦、紙箱或支架</td></tr>
+  <tr><td>接線</td><td>不需外接元件：攝影機排線接板子攝影機連接座；LED 用板上 LED_G（D24）、LED_B（D23）；USB 供電</td></tr>
+  <tr><td>SDK 版本</td><td>Realtek AmebaPro2 4.1.1-build20260915；開發板 Ameba_AMB82-MINI</td></tr>
+  <tr><td>模型與相機設定</td><td>YOLOv4-tiny（SDK 內建，不需訓練），信心值 0.30、NMS 0.30；Camera Option JXF37；辨識通道 576×320 RGB 10 fps，串流通道 1280×720 H.264 1 Mbps</td></tr>
+  <tr><td>燒錄</td><td>複製 <code>secrets.h.example</code> 為 <code>secrets.h</code> 填 Wi-Fi → 按住 UART_DOWNLOAD、按 RESET、放開 → Arduino IDE 上傳 <code>focus_guard.ino</code> → 只按 RESET 執行</td></tr>
+  <tr><td>操作</td><td>序列埠印出網址；瀏覽器開 <code>http://板子IP/</code> 看狀態與統計；綠燈讀書中、藍燈分心中；拿起手機滑超過 2 秒判定分心</td></tr>
+</table>
+
+<h2>十一、來源與 AI 使用</h2>
+<ul>
+  <li>改自 Realtek Ameba Arduino SDK 範例 <code>NeuralNetwork/ObjectDetectionCallback</code>（含 <code>ObjectClassList.h</code>）。</li>
+  <li>使用生成式 AI（Claude）協助撰寫程式、測試腳本與文件；功能取捨、擺放位置、改進方向與全部測試由本組決定並在開發板上實測。</li>
+  <li>測試時只拍攝組員本人，且已取得同意。</li>
+</ul>
+
+<h2 class="page-break">附錄 A　原始測試紀錄</h2>
+<p class="sub">共 80 次：初測 30 次、第一輪重測 20 次、最終重測 30 次。紅底為不符合預期。備註中標示「事後分析」者為依事件紀錄補充的說明；初測正常 #1 的實際行為原本被自動判讀誤寫，已依事件紀錄更正並註明。原始 CSV 與逐幀紀錄在 GitHub 的 <code>docs/test-data/week3/</code>。</p>
+<!--RECORDS-->
+
+
+</body>
+</html>

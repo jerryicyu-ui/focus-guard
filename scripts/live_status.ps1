@@ -14,7 +14,7 @@ $serial = New-Object System.IO.Ports.SerialPort $Port, 115200
 $serial.Open()
 Clear-Host
 Write-Host '=== 讀書專注小幫手｜AMB82-MINI 板上即時辨識結果（序列埠）===' -ForegroundColor Cyan
-Write-Host '第一週：綠燈 = 有人，藍燈 = 手機 ≥ 50　｜　第二週：綠燈 = 讀書中，藍燈 = 分心中（手機連續 3 秒）' -ForegroundColor Cyan
+Write-Host '第一週：綠燈 = 有人，藍燈 = 手機 ≥ 50　｜　第二週：綠燈 = 讀書中，藍燈 = 分心中（手機連續 2 秒）' -ForegroundColor Cyan
 Write-Host ''
 
 $buffer = ''
@@ -36,7 +36,7 @@ try {
             # 第二週事件：EVENT,DISTRACT_START,時間,次數 / EVENT,DISTRACT_END,時間,次數,持續毫秒
             $start = [regex]::Match($line, '^EVENT,DISTRACT_START,(\d+),(\d+)')
             if ($start.Success) {
-                Write-Host ('{0,8:N1}s  ★ 第 {1} 次分心開始（手機連續 3 秒）' -f ([int]$start.Groups[1].Value / 1000), $start.Groups[2].Value) -ForegroundColor Red
+                Write-Host ('{0,8:N1}s  ★ 第 {1} 次分心開始' -f ([int]$start.Groups[1].Value / 1000), $start.Groups[2].Value) -ForegroundColor Red
                 continue
             }
             $end = [regex]::Match($line, '^EVENT,DISTRACT_END,(\d+),(\d+),(\d+)')
